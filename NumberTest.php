@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use NumberOps\NumberConverter as NumberConverter;
-include 'numberconverter.php';
+use NumberClases\NumberConv as NumberConverter;
+include 'numberconverter_way2.php';
 final class NumberTest extends TestCase
 {
   
@@ -12,29 +12,66 @@ final class NumberTest extends TestCase
             'чотири гривні',
             NumberConverter::num_to_words(4)
         );
+         $this->assertEquals(
+            'сорок гривень',
+            NumberConverter::num_to_words(40)
+        );
+
+           $this->assertEquals(
+            'сорок дві гривні',
+            NumberConverter::num_to_words(42)
+        );
+
+              $this->assertEquals(
+            'сімдесят вісім гривень',
+            NumberConverter::num_to_words(78)
+        );
+                  $this->assertEquals(
+            'сімдесят гривень',
+            NumberConverter::num_to_words(70)
+        );
 
         $this->assertEquals(
             'сорок п\'ять гривень',
             NumberConverter::num_to_words(45)
         );
          $this->assertEquals(
-            'девяносто одна гривня',
+            'дев\'яносто одна гривня',
             NumberConverter::num_to_words(91)
         );
          $this->assertEquals(
-            'девяносто дві гривні',
+            'дев\'яносто дві гривні',
             NumberConverter::num_to_words(92)
         );
 
-
+ $this->assertEquals(
+            'сто двадцять чотири гривні',
+            NumberConverter::num_to_words(124)
+        );
          $this->assertEquals(
-            'вісімсот вісімдесят гривень',
-            NumberConverter::num_to_words(880)
+            'вісімсот дев\'яносто гривень',
+            NumberConverter::num_to_words(890)
         );
 
           $this->assertEquals(
-            'девятьсот двадцять одна гривня',
+            'девятсот двадцять одна гривня',
             NumberConverter::num_to_words(921)
         );
+
+            $this->assertEquals(
+            'девятсот одна гривня',
+            NumberConverter::num_to_words(901)
+        );
+             $this->assertEquals(
+            'девятсот десять гривень',
+            NumberConverter::num_to_words(910)
+        );
+
+               $this->assertEquals(
+            'девятсот девятнадцять гривень',
+            NumberConverter::num_to_words(919)
+        );
+
+
     }
 }

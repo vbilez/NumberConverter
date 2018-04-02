@@ -1,7 +1,7 @@
 <?php
 
-require 'numberconverter.php';
-use NumberOps\NumberConverter as Nc;
+require 'numberconverter_way2.php';
+use NumberClases\NumberConv as Nc;
 $nc=new Nc();
 if(isset($_POST) && !empty($_POST['fieldvalue'])) {
 
@@ -9,9 +9,12 @@ if(isset($_POST) && !empty($_POST['fieldvalue'])) {
 
     //$fieldvalue=$obj->fieldvalue;
     $fieldvalue=$_POST['fieldvalue'];
+
+
+
     if(is_numeric($fieldvalue))
     {
-        $fieldvalue=$nc->getTextNumber($fieldvalue);
+        $fieldvalue=$nc->num_to_words($fieldvalue);
         $result=array(
             'result'=>$fieldvalue
         );
