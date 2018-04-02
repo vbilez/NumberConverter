@@ -1,0 +1,47 @@
+<html>
+<head>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div class="container">
+<div align="center" style="margin-top: 50px;">
+	<form class="form-inline justify-content-center">
+        <input type="text" id="numberfield" name="numberfield" class="form-control" >
+        <div style="margin-left: 3px;"></div>
+        <button id="submit" class="btn btn-success">У текст!</button>
+    </form>
+    <div id="result" class="text-center" style="font-family: arial, sans-serif;font-size: 18px;font-weight: bold">
+
+    </div>
+</div>
+</div>
+
+<script>
+    $( document ).ready(function() {
+       $('#submit').click(
+               function(e){
+                   e.preventDefault();
+                   var numberfield=$('#numberfield').val();
+                   $.ajax({
+                       type: "POST",
+                       url: "parser.php",
+                       data: {fieldvalue:numberfield},
+
+                       success: function(html){
+                           var res = JSON.parse(html);
+                           $('#result').html(res.result);
+
+
+                       }
+                   });
+               }
+       )
+    });
+</script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
